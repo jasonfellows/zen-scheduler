@@ -1,4 +1,4 @@
-require './lib/meeting.rb'
+require './lib/meeting'
 
 class FileReader
   attr_accessor :meetings
@@ -12,6 +12,6 @@ class FileReader
   end
 
   def to_string
-    @meetings.map{|m| m.to_string}.join("\n")
+    @meetings.map(&:to_string).join("\n")
   end
 end
