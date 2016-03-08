@@ -16,7 +16,7 @@ class Meeting
     start_time.nil? ? '???????' : @start_time.strftime('%I:%M%p')
   end
 
-  def to_string
+  def to_s
     "#{start_time_string} #{@title} #{duration}min"
   end
 

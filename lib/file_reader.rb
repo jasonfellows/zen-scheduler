@@ -11,7 +11,7 @@ class FileReader
     end
   end
 
-  def to_string
-    @meetings.map(&:to_string).join("\n")
+  def to_s
+    @meetings.map(&:to_s).join("\n")
   end
 end

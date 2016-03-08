@@ -67,10 +67,10 @@ class Room
     @lunch_end + used_after_lunch*60 + duration*60 <= @day_end
   end
 
-  def to_string
-    meetings_before_lunch.map(&:to_string).join("\n") +
+  def to_s
+    meetings_before_lunch.map(&:to_s).join("\n") +
     "\n#{@lunch_start.strftime('%I:%M%p')} Lunch\n" +
-    meetings_after_lunch.map(&:to_string).join("\n")
+    meetings_after_lunch.map(&:to_s).join("\n")
   end
 
   def used_before_lunch
