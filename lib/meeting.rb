@@ -4,10 +4,13 @@ class Meeting
 
   def initialize(input_string, start_time=nil)
     @start_time = start_time
+
     split_string = input_string.split(' ')
     raise "Error: unable to read meeting input string: '#{input_string}'" if split_string.length < 2
+
     duration_string = split_string.pop
     raise "Error: invalid duration: '#{duration_string}'" if !valid_duration?(duration_string)
+
     @duration = duration_string.chop.chop.chop.to_i
     @title = split_string.join(' ')
   end

@@ -8,9 +8,9 @@ class Scheduler
   end
 
   def schedule
-    shortest_duration = @meetings.last.duration
+    shortest_duration = @meetings.first.duration
 
-    while @meetings.any? && @rooms.reject{|r| r.largest_remaining_block > shortest_duration}.any?
+    while @meetings.any? && @rooms.reject{|r| r.largest_remaining_block < shortest_duration}.any?
       @rooms.each do |room|
         @meetings.pop if @meetings.last && room.push(@meetings.last)
       end
@@ -31,6 +31,7 @@ class Scheduler
       @remaining_meetings.each do |meeting|
         output << "#{meeting.to_s}\n"
       end
+      output << "\n"
     end
 
     output

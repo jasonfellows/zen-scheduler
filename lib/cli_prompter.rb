@@ -8,6 +8,7 @@ class CliPrompter
     while ['Y', 'y'].include? continue do
       puts "\nPlease enter a meeting title followed by the duration in minutes."
       print "(example: Team Lunch 30min): "
+
       begin
         @meetings << Meeting.new($stdin.gets.chomp)
         print "Add another? (y/n): "

@@ -31,8 +31,8 @@ class Room
 
   def largest_remaining_block
     [
-      ((@day_start + used_before_lunch*60) - (@lunch_start)) / 60,
-      ((@lunch_end + used_after_lunch*60) - (@day_end)) / 60
+      ((@lunch_start) - (@day_start + used_before_lunch*60)) / 60,
+      ((@day_end) - (@lunch_end + used_after_lunch*60)) / 60
     ].max
   end
 
