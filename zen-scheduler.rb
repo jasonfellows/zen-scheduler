@@ -1,7 +1,7 @@
-require './lib/file_reader'
-require './lib/meeting'
-require './lib/room'
-require './lib/scheduler'
+require_relative 'lib/file_reader'
+require_relative 'lib/meeting'
+require_relative 'lib/room'
+require_relative 'lib/scheduler'
 require 'optparse'
 
 options = {test_data: false}

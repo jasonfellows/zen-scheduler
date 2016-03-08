@@ -1,4 +1,4 @@
-require './lib/meeting'
+require_relative 'meeting'
 
 class Room
   attr_accessor :meetings
@@ -27,6 +27,13 @@ class Room
     else
       raise "Error: only meetings can be added to room schedules"
     end
+  end
+
+  def largest_remaining_block
+    [
+      ((@day_start + used_before_lunch*60) - (@lunch_start)) / 60,
+      ((@lunch_end + used_after_lunch*60) - (@day_end)) / 60
+    ].max
   end
 
   def schedule(meeting)

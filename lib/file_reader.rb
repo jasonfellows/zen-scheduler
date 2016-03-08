@@ -1,4 +1,4 @@
-require './lib/meeting'
+require_relative 'meeting'
 
 class FileReader
   attr_accessor :meetings
