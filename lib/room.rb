@@ -3,23 +3,11 @@ require './lib/meeting'
 class Room
   attr_accessor :meetings
 
-  def initialize(day_start="09:00", day_end="17:00")
+  def initialize
     @meetings = []
 
-    @day_start = Time.new(
-      Time.now.year,
-      Time.now.month,
-      Time.now.day,
-      day_start.split(':')[0],
-      day_start.split(':')[1]
-    )
-    @day_end = Time.new(
-      Time.now.year,
-      Time.now.month,
-      Time.now.day,
-      day_end.split(':')[0],
-      day_end.split(':')[1]
-    )
+    @day_start = Time.new(Time.now.year, Time.now.month, Time.now.day, 9)
+    @day_end = Time.new(Time.now.year, Time.now.month, Time.now.day, 17)
 
     @lunch_start = Time.new(Time.now.year, Time.now.month, Time.now.day, 12)
     @lunch_end = Time.new(Time.now.year, Time.now.month, Time.now.day, 13)

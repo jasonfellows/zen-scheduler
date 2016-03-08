@@ -1,17 +1,31 @@
 require './lib/file_reader'
 require './lib/meeting'
 require './lib/room'
+require './lib/scheduler'
+require 'optparse'
+
+options = {test_data: false}
+
+OptionParser.new do |opts|
+  opts.banner = "Usage: zen-scheduler.rb [options] [room count]"
+  opts.separator "Schedule any number of meetings into any number of meeting rooms."
+  opts.separator "Options:"
+  opts.on("-t", "--test-data", "Use test data (default: sample_data.txt)") do |t|
+    options[:test_data] = t
+  end
+end.parse!
 
 puts "\nZenScheduler\n------------\n\n"
 
-meetings = FileReader.new('sample_data.txt').meetings
-
-room1 = Room.new
-
-meetings.each do |meeting|
-  room1.push(meeting)
+if options[:test_data]
+  meetings = FileReader.new('sample_data.txt').meetings
 end
 
-puts room1.to_string
+room_count = ARGV.last.to_i > 0 ? ARGV.last.to_i : 2
 
-puts "\n"
+rooms = []
+room_count.times do
+  rooms << Room.new
+end
+
+puts Scheduler.new(rooms, meetings).to_s
