@@ -55,10 +55,6 @@ class Room
     end
   end
 
-  def sort(meetings)
-    meetings.sort{|a,b| a.start_time <=> b.start_time}
-  end
-
   def time_before_lunch?(duration)
     @day_start + used_before_lunch*60 + duration*60 <= @lunch_start
   end
