@@ -1,3 +1,4 @@
+require_relative 'lib/cli_prompter'
 require_relative 'lib/file_reader'
 require_relative 'lib/meeting'
 require_relative 'lib/room'
@@ -19,6 +20,8 @@ puts "\nZenScheduler\n------------\n\n"
 
 if options[:test_data]
   meetings = FileReader.new('sample_data.txt').meetings
+else
+  meetings = CliPrompter.new.meetings
 end
 
 room_count = ARGV.last.to_i > 0 ? ARGV.last.to_i : 2

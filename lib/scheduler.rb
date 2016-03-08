@@ -23,7 +23,7 @@ class Scheduler
     output = ''
 
     @rooms.each_with_index do |room, i|
-      output << "Room #{i+1}:\n#{room.to_s}\n\n\n"
+      output << "Room #{i+1}:\n#{room.to_s}\n\n"
     end
 
     if @remaining_meetings.any?
