@@ -1,7 +1,7 @@
-require './lib/file_reader.rb'
+require './lib/file_reader'
 
 puts "\nZenScheduler\n------------\n\n"
 
-FileReader.new('sample_data.txt').to_string
+puts FileReader.new('sample_data.txt').to_string
 
 puts "\n"
